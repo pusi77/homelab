@@ -1,0 +1,19 @@
+# Default values for freshrss.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+volumes:
+  hostPath: /opt/k3s-data/freshrss/config
+  mountPath: /config
+
+image:
+  name: nginx
+  tag: "1.23.1"
+
+application:
+  port: 80
+
+timezone: "Europe/Rome"
+
+routing:
+  matchRule: Host(`freshrss.pusi77.eu.org`)
