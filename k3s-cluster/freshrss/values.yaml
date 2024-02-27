@@ -1,7 +1,3 @@
-# Default values for freshrss.
-# This is a YAML-formatted file.
-# Declare variables to be passed into your templates.
-
 volumes:
   hostPath: /opt/k3s-data/freshrss/config
   mountPath: /config
