@@ -14,7 +14,7 @@ services:
       - PGID=1000
       - TZ=Europe/Rome
     volumes:
-      - /opt/compose-data/freshrss:/config
+      - /opt/compose-data/freshrss/config:/config
     networks:
       - traefik_traefik
     ports:
