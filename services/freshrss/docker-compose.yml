@@ -1,0 +1,31 @@
+---
+version: "2.1"
+
+networks:
+  traefik_traefik:
+    external: true
+
+services:
+  freshrss:
+    image: lscr.io/linuxserver/freshrss:latest
+    container_name: freshrss
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Rome
+    volumes:
+      - /opt/compose-data/freshrss:/config
+    networks:
+      - traefik_traefik
+    ports:
+      - 8086:80
+    restart: unless-stopped
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.freshrss.rule=Host(`freshrss.pusi77.eu.org`)"
+      - "traefik.http.routers.freshrss.entrypoints=websecure"
+      - "traefik.http.routers.freshrss.tls=true"
+      - "traefik.docker.network=traefik_traefik"
+      - "traefik.http.middlewares.servicests.headers.stspreload=true"
+      - "traefik.http.middlewares.servicests.headers.stsseconds=31536000"
+      - "traefik.http.middlewares.freshrssHeader.headers.forceSTSHeader=true"
