@@ -1,0 +1,15 @@
+volumes:
+  hostPath: /opt/k3s-data/freshrss/config
+  mountPath: /config
+
+image:
+  name: nginx
+  tag: "1.23.1"
+
+application:
+  port: 80
+
+timezone: "Europe/Rome"
+
+routing:
+  matchRule: Host(`freshrss.pusi77.eu.org`)
