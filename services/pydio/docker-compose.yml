@@ -19,7 +19,7 @@ services:
     restart: unless-stopped
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.freshrss.rule=Host(`pydio.pusi77.eu.org`)"
-      - "traefik.http.routers.freshrss.entrypoints=websecure"
-      - "traefik.http.routers.freshrss.tls=true"
+      - "traefik.http.routers.pydio.rule=Host(`pydio.pusi77.eu.org`)"
+      - "traefik.http.routers.pydio.entrypoints=websecure"
+      - "traefik.http.routers.pydio.tls=true"
       - "traefik.docker.network=traefik_traefik"
