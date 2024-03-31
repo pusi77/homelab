@@ -23,3 +23,18 @@ services:
       - "traefik.http.routers.pydio.entrypoints=websecure"
       - "traefik.http.routers.pydio.tls=true"
       - "traefik.docker.network=traefik_traefik"
+
+  mariadb:
+    image: lscr.io/linuxserver/mariadb:latest
+    container_name: mariadb
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/Rome
+      # - MYSQL_ROOT_PASSWORD=portainer env var 
+      - MYSQL_DATABASE=cells
+    volumes:
+      - /opt/compose-data/pydio/mariadb/config:/config
+    ports:
+      - 3306:3306
+    restart: unless-stopped
