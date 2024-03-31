@@ -31,7 +31,7 @@ services:
       - PUID=1000
       - PGID=1000
       - TZ=Etc/Rome
-      # - MYSQL_ROOT_PASSWORD=portainer env var 
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
       - MYSQL_DATABASE=cells
     volumes:
       - /opt/compose-data/pydio/mariadb/config:/config
