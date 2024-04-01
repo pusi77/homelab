@@ -25,14 +25,14 @@ services:
     image: seafileltd/seafile-mc:latest
     container_name: seafile
     ports:
-      - "80:80"
+      - "8088:80"
 #     - "443:443"  # If https is enabled, cancel the comment.
     volumes:
       - /opt/seafile-data:/shared
     environment:
       - DB_HOST=db
       - DB_ROOT_PASSWD=${MYSQL_ROOT_PASSWORD}
-      - TIME_ZONE=Etc/Rome
+      - TIME_ZONE=Europe/Rome
       - SEAFILE_ADMIN_EMAIL=${SEAFILE_ADMIN_EMAIL}
       - SEAFILE_ADMIN_PASSWORD=${SEAFILE_ADMIN_PASSWORD}
       - SEAFILE_SERVER_LETSENCRYPT=false   # Whether to use https or not.
